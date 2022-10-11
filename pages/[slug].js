@@ -40,16 +40,20 @@ export async function getStaticProps({ params }) {
       'fields.slug': params.slug,
     });
 
-    const { base64 } = await getPlaiceholder(
-      `https:${post.fields.image.fields.file.url}`
-    );
+    let blurDataURL = '';
+
+    if (post.fields.image) {
+      ({ base64: blurDataURL } = await getPlaiceholder(
+        `https:${post.fields.image.fields.file.url}`
+      ));
+    }
 
     return {
       props: {
         post: {
           id: post.sys.id,
           createdAt: post.sys.createdAt,
-          blurDataURL: base64,
+          blurDataURL,
           ...post.fields,
         },
       },
