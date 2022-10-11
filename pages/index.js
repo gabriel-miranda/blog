@@ -1,28 +1,11 @@
 import client from 'lib/contentful-client';
-import Link from 'next/link';
+import Summary from 'components/Summary';
 
 export default function Home({ posts }) {
   return (
     <main>
       {posts.map((post) => (
-        <article key={post.id}>
-          <header>
-            <h2>
-              <Link href={`/${post.slug}`}>
-                <a>{post.title}</a>
-              </Link>
-            </h2>
-            <time dateTime={post.createdAt}>
-              {new Date(post.createdAt).toDateString()}
-            </time>
-          </header>
-          <p>{post.description}</p>
-          <div align="right">
-            <Link href={`/${post.slug}`}>
-              <a> Read More →</a>
-            </Link>
-          </div>
-        </article>
+        <Summary key={post.id} post={post} />
       ))}
     </main>
   );

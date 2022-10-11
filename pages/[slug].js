@@ -1,21 +1,11 @@
 import client from 'lib/contentful-client';
 import { getPlaiceholder } from 'plaiceholder';
-import ReactMarkdown from 'react-markdown';
-import Image from 'next/image';
+import Post from 'components/Post';
 
 export default function Home({ post }) {
   return (
     <main>
-      <h1>{post.title}</h1>
-      <Image
-        src={`https:${post.image.fields.file.url}`}
-        alt={post.image.fields.description}
-        width={post.image.fields.file.details.image.width}
-        height={post.image.fields.file.details.image.height}
-        blurDataURL={post.blurDataURL}
-        placeholder="blur"
-      />
-      <ReactMarkdown>{post.body}</ReactMarkdown>
+      <Post post={post} />
     </main>
   );
 }
