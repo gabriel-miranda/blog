@@ -2,7 +2,7 @@
 const isProd = process.env.NODE_ENV === 'production';
 
 const nextConfig = {
-  assetPrefix: isProd ? 'https://gabmirdev.com' : undefined,
+  assetPrefix: isProd ? 'https://gabmir.dev' : undefined,
   reactStrictMode: true,
   swcMinify: true,
   images: {
