@@ -13,14 +13,16 @@ export default function Post({ post }) {
         </time>
         <small> {getCoffees(post.body)}</small>
       </header>
-      <Image
-        src={`https:${post.image.fields.file.url}`}
-        alt={post.image.fields.description}
-        width={post.image.fields.file.details.image.width}
-        height={post.image.fields.file.details.image.height}
-        blurDataURL={post.blurDataURL}
-        placeholder="blur"
-      />
+      {post.image && (
+        <Image
+          src={`https:${post.image.fields.file.url}`}
+          alt={post.image.fields.description}
+          width={post.image.fields.file.details.image.width}
+          height={post.image.fields.file.details.image.height}
+          blurDataURL={post.blurDataURL}
+          placeholder="blur"
+        />
+      )}
       <ReactMarkdown>{post.body}</ReactMarkdown>
     </main>
   );

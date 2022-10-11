@@ -15,6 +15,10 @@
   margin: 0;
 }
 
+.title a {
+  color: inherit;
+}
+
 .description {
   margin-top: 0.25em;
 }

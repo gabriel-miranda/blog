@@ -1,6 +1,7 @@
 import 'theme/base.css';
 import styles from 'theme/app.module.css';
 import Image from 'next/image';
+import Link from 'next/link';
 import { useRouter } from 'next/router';
 import React from 'react';
 
@@ -33,7 +34,11 @@ export default function MyApp({ Component, pageProps }) {
           height={100}
         />
         <div>
-          <h1 className={styles.title}>gabmir.dev</h1>
+          <h1 className={styles.title}>
+            <Link href="/">
+              <a>gabmirdev</a>
+            </Link>
+          </h1>
           <p className={styles.description}>
             Engineering Manager - Software Engineer <br />
             Personal blog by{' '}
